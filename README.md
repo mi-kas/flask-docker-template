@@ -71,3 +71,7 @@ docker-compose up --build
 ```
 
 (Note: Re-building the image is only needed when adding new packages. Changes in the project's code files are automatically loaded into the container.)
+
+## Frontend
+
+Check out the branch [`react-frontend`](https://github.com/mi-kas/flask-docker-template/tree/react-frontend) if you want to add a frontend based on react to your project.
