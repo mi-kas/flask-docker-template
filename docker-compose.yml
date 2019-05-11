@@ -1,0 +1,32 @@
+version: '3'
+services:
+  backend:
+    build: .
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017
+      - POSTGRES_URI=postgresql://postgresdb:5432
+    ports:
+      - '5000:5000'
+    volumes:
+      # Bind directories in order to modify the code on the fly, without having to rebuild the image
+      - ./src:/app/src
+    depends_on:
+      - mongodb
+      - postgresdb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+
+  postgresdb:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+    ports:
+      - 5432:5432
+    # volumes:
+    #   - database_data:/var/lib/postgresql/data
