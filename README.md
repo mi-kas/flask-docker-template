@@ -49,6 +49,7 @@ docker-compose up
 ```
 
 This will spin up a flask server on `localhost:5000`, a mongo db on `localhost:27017` and a postgres db on `localhost:5432`. Ther `src` directory is mounted to the container and allowing thereby to modify the code on the fly, without having to rebuild the image. More details [here](https://docs.docker.com/compose/gettingstarted/).
+The frontend is created using [`create-react-app`](https://github.com/facebook/create-react-app) and reachable on `localhost:3000`. Also here is a hot module replacement implemented for the container.
 
 ## Adding new requirements
 
