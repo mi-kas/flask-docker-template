@@ -24,5 +24,10 @@ def get_user():
     return dumps({"success": True, "data": users})
 
 
+@app.route('/')
+def hello_world():
+    return 'Hello world!'
+
+
 if __name__ == "__main__":
     app.run(host=config.HOST, port=config.PORT, debug=config.DEBUG)

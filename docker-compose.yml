@@ -10,21 +10,10 @@ services:
       - 5000:5000
     volumes:
       # Bind directories in order to modify the code on the fly, without having to rebuild the image
-      - ./backend/src:/app/backend/src
+      - ./backend/src:/app/src
     depends_on:
       - mongodb
       - postgresdb
-
-  frontend:
-    build:
-      context: ./frontend
-    ports:
-      - 3000:3000
-    volumes:
-      - ./frontend/src:/app/frontend/src
-      - ./frontend/public:/app/frontend/public
-    depends_on:
-      - backend
 
   mongodb:
     image: mongo:latest
